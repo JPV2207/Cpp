@@ -15,6 +15,7 @@ public:
     void push(int x){
         if(top==n-1){
             cout<<"stack is overflow"<<endl;
+            return;
         }
         top++;
         arr[top]=x;
@@ -22,6 +23,7 @@ public:
     void pop(){
         if(top==-1){
             cout<<"no element to pop"<<endl;
+            return;
         }
         top--;
     }
@@ -32,6 +34,20 @@ public:
         }
         return arr[top];
     }
+    void display(){
+        if(top==-1)
+        return;
+        else if(top==0){
+            cout<<"["<<arr[top]<<"]"<<endl;
+            return;
+        }
+        else{
+            cout<<"[";
+            for(int i=0;i<top;i++)
+                cout<<arr[i]<<",";
+            cout<<arr[top]<<"]"<<endl;
+        }
+    }
 };
 int main(){
     stack st;
@@ -40,8 +56,10 @@ int main(){
     st.push(3);
     st.pop();
     cout<<st.Top()<<endl;
+    st.display();
     st.pop();
     st.pop();
     cout<<st.Top()<<endl;
+    st.display();
     return 0;
 }
